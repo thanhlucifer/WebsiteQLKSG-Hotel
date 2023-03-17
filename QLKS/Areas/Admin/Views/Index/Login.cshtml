@@ -18,33 +18,61 @@
     <link href="~/Content/Admin/css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
-    <div class="container">
-        <div class="card card-login mx-auto mt-5">
-            <div class="card-header">Login</div>
-            <div class="card-body">
-                @using (Html.BeginForm("Login", "Index", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true)
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Username</label>
-                        @Html.TextBoxFor(u => u.tai_khoan, null, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(u => u.tai_khoan)
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        @Html.PasswordFor(u => u.mat_khau, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(u => u.mat_khau)
-                    </div>
-                    <input class="btn btn-primary btn-block" type="submit" value="Log In" />
-                }
+<body class="bg-color">
+        <div class="container">
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header header-cl"><b>Đăng nhập Admin</b></div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Login", "Index", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Username</label>
+                            @Html.TextBoxFor(u => u.tai_khoan, null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.tai_khoan)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            @Html.PasswordFor(u => u.mat_khau, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.mat_khau)
+                        </div>
+                        <input class="btn btn-cl btn-block" type="submit" value="Đăng nhập" />
+                    }
+                </div>
             </div>
         </div>
-    </div>
-    <script src="~/Content/Admin/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Content/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Content/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="~/Content/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Content/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 </body>
 
+<style>
+    .bg-color {
+        background-color: #FFFFFF !important;
+    }
+
+    .header-cl {
+        color: #2F1C6A;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .btn-cl {
+        background-color: #6747c7 !important;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        padding: 15px 20px;
+        font-weight:700;
+    }
+
+        .btn-cl:hover {
+            border-color: #491BD5;
+        }
+   .form-group > label {
+        color: #727596;
+    }
+ 
+</style>
 </html>
