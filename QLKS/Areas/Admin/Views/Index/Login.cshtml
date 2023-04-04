@@ -21,7 +21,7 @@
 <body class="bg-color">
         <div class="container">
             <div class="card card-login mx-auto mt-5">
-                <div class="card-header header-cl"><b>Đăng nhập Admin</b></div>
+                <div class="card-header header-cl"><b>Đăng nhập Admin QLKS</b></div>
                 <div class="card-body">
                     @using (Html.BeginForm("Login", "Index", FormMethod.Post))
                     {
@@ -49,7 +49,7 @@
 
 <style>
     .bg-color {
-        background-color: #FFFFFF !important;
+         background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
     }
 
     .header-cl {
@@ -57,6 +57,11 @@
         text-align: center;
         font-size: 24px;
     }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
 
     .btn-cl {
         background-color: #6747c7 !important;

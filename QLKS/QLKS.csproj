@@ -174,7 +174,6 @@
     <Compile Include="Areas\Admin\Controllers\HoaDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhieuDatPhongController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TestController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\Admin\Models\KhachHang.cs" />
     <Compile Include="Controllers\Home\AccountController.cs" />
@@ -252,6 +251,7 @@
   <ItemGroup>
     <Content Include="Content\Admin\css\sb-admin.css" />
     <Content Include="Content\Admin\css\sb-admin.min.css" />
+    <Content Include="Content\Admin\css\StyleSheet1.css" />
     <Content Include="Content\Admin\js\sb-admin-charts.js" />
     <Content Include="Content\Admin\js\sb-admin-charts.min.js" />
     <Content Include="Content\Admin\js\sb-admin-datatables.js" />
@@ -283,6 +283,7 @@
     <Content Include="Content\Admin\vendor\jquery-easing\jquery.easing.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\Home\images\loader.gif" />
     <Content Include="Content\Images\DichVu\default.png" />
     <Content Include="Content\Home\css\animate.css" />
     <Content Include="Content\Home\css\bootstrap-datepicker.min.css" />
@@ -306,7 +307,6 @@
     <Content Include="Content\Home\images\img_6.jpg" />
     <Content Include="Content\Home\images\img_bg_1.jpg" />
     <Content Include="Content\Home\images\img_bg_3.jpg" />
-    <Content Include="Content\Home\images\loader.gif" />
     <Content Include="Content\Home\js\bootstrap-datepicker.min.js" />
     <Content Include="Content\Home\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\Home\js\bootstrap.min.js" />
@@ -328,7 +328,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -456,7 +455,6 @@
     <Content Include="Areas\Admin\Views\Tang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Tang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ThongKe\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Test\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Index\CaNhan.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDon\DoiPhong.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDon\ResultDoiPhong.cshtml" />

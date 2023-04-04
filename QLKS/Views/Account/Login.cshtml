@@ -18,10 +18,10 @@
     <link href="~/Content/Admin/css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-cl">
     <div class="container">
         <div class="card card-login mx-auto mt-5">
-            <div class="card-header">Login</div>
+            <div class="card-header"><b>Login</b></div>
             <div class="card-body">
                 @using (Html.BeginForm())
                 {
@@ -55,5 +55,27 @@
     <script src="~/Content/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/Content/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 </body>
+<style>
+    
+    .bg-cl {
+        background: linear-gradient(#141e30, #243b55);
+    }
+    .card-header{
+        text-align:center;
+        font-size:30px;
+        color: red;
+    }
+    .card {
+        background: rgba(0,0,0,.5);
+        color: #fff;
+    }
 
+    .card-body > a{
+        text-decoration:none;
+    }
+    .btn:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    </style>
 </html>

@@ -16,7 +16,7 @@
     <link href="~/Content/Admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <link href="~/Content/Admin/css/sb-admin.css" rel="stylesheet">
-    <link href="~/Content/Site.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/StyleSheet1.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -27,8 +27,8 @@
         }
     }
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-g" id="mainNav">
-        <a class="navbar-brand" href="@Url.Action("Index", "Index")">Admin Manager</a>
+    <nav class="navbar navbar-expand-lg navbar-color fixed-top nav-g" id="mainNav">
+        <a class="navbar-brand" href="@Url.Action("Index", "Index")"><b>ADMIN</b></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -126,157 +126,12 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-fw fa-envelope"></i>
-                        <span class="d-lg-none">
-                            Messages
-                            <span class="badge badge-pill badge-primary">12 New</span>
-                        </span>
-                        <span class="indicator text-primary d-none d-lg-block">
-                            <i class="fa fa-fw fa-circle"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu g-dropdown" aria-labelledby="messagesDropdown">
-                        <h6 class="dropdown-header">Tin nhắn mới:</h6>
-                        @{
-        QLKS.Models.dataQLKSEntities db = new QLKS.Models.dataQLKSEntities();
-        List<QLKS.Models.tblTinNhan> dstn = (List<QLKS.Models.tblTinNhan>)db.tblTinNhans.OrderByDescending(t=>t.ngay_gui).Take(5).ToList();
-        foreach (var item in dstn)
-        {
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>@if (item.ma_kh == null) {
-                            @item.ho_ten
-                        }
-                        else
-                        {
-                            @item.tblKhachHang.ho_ten;
-                        }
-
-                        </strong>
-                        <span class="small float-right text-muted">@item.ngay_gui</span>
-                        
-                        <div class="dropdown-message small">
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <i>@if (item.ma_kh == null)
-                        {
-                            @item.mail
-                        }
-                        else
-                        {
-                            @item.tblKhachHang.mail
-                        }</i>
-                        <br />
-                        @item.noi_dung
-                        </div>
-                    </a>
-}
-                        }
-
-
-                        @*<div class="dropdown-divider"></div>
-        <a class="dropdown-item small" href="#">View all messages</a>*@
-                    </div>
+                   
+                    
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-fw fa-bell"></i>
-                        <span class="d-lg-none">
-                            Thông báo
-                            <span class="badge badge-pill badge-warning">7 New</span>
-                        </span>
-                        <span class="indicator text-warning d-none d-lg-block">
-                            <i class="fa fa-fw fa-circle"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu g-dropdown" aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">Thông Báo</h6>
-
-
-                        @{
-                            DateTime d = DateTime.Now.AddDays(1);
-                            List<QLKS.Models.tblHoaDon> hd = db.tblHoaDons.Where(t => t.ma_tinh_trang == 1 && t.tblPhieuDatPhong.ngay_ra < d).OrderBy(t => t.tblPhieuDatPhong.ngay_ra).Take(5).OrderByDescending(t=>t.tblPhieuDatPhong.ngay_ra).ToList();
-                            List<QLKS.Models.tblPhieuDatPhong> pdp = db.tblPhieuDatPhongs.Where(t => t.ma_tinh_trang == 1).OrderByDescending(t => t.ngay_dat).Take(5).ToList();
-                            int i = 0, j = 0, k = 0, max = 7;
-                            while (k < max && i < hd.Count && j < pdp.Count)
-                            {
-                                if (hd[i].tblPhieuDatPhong.ngay_ra.Value.AddDays(-1) > pdp[j].ngay_dat)
-                                {
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">
-                                        <span class="text-danger">
-                                            <strong>
-                                                <i class="fa fa-sign-out fa-fw"></i>Trả phòng @hd[i].tblPhieuDatPhong.tblPhong.so_phong
-                                            </strong>
-                                        </span>
-                                        <span class="small float-right text-muted">@hd[i].tblPhieuDatPhong.ngay_ra.Value.AddDays(-1).ToShortDateString()</span>
-                                        <div class="dropdown-message small">Thời gian trả phòng vào lúc @hd[i].tblPhieuDatPhong.ngay_ra</div>
-                                    </a>
-                                    i = i + 1;
-                                }
-                                else
-                                {
-
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">
-                                        <span class="text-success">
-                                            <strong>
-                                                <i class="fa fa-plus-circle fa-fw"></i>Đặt phòng @pdp[j].tblPhong.so_phong
-                                            </strong>
-                                        </span>
-                                        <span class="small float-right text-muted"> @pdp[j].ngay_dat.Value.ToShortDateString()</span>
-                                        <div class="dropdown-message small">Phòng @pdp[j].tblPhong.so_phong được đặt vào lúc @pdp[j].ngay_dat</div>
-                                    </a>
-                                    j = j + 1;
-
-                                }
-                                k = k + 1;
-                            }
-                            for (int a = i; a < hd.Count; a++)
-                            {
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <span class="text-danger">
-                                        <strong>
-                                            <i class="fa fa-sign-out fa-fw"></i>Trả phòng @hd[a].tblPhieuDatPhong.tblPhong.so_phong
-                                        </strong>
-                                    </span>
-                                    <span class="small float-right text-muted">@hd[a].tblPhieuDatPhong.ngay_ra.Value.AddDays(-1).ToShortDateString()</span>
-                                    <div class="dropdown-message small">Thời gian trả phòng vào lúc @hd[a].tblPhieuDatPhong.ngay_ra</div>
-                                </a>
-
-                                k = k + 1;
-                                if (k >= max)
-                                {
-                                    break;
-                                }
-                            }
-                            for (int a = j; a < pdp.Count; a++)
-                            {
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <span class="text-success">
-                                        <strong>
-                                            <i class="fa fa-plus-circle fa-fw"></i>Đặt phòng @pdp[a].tblPhong.so_phong
-                                        </strong>
-                                    </span>
-                                    <span class="small float-right text-muted">@pdp[a].ngay_dat.Value.ToShortDateString()</span>
-                                    <div class="dropdown-message small">Phòng @pdp[a].tblPhong.so_phong được đặt vào lúc @pdp[a].ngay_dat</div>
-                                </a>
-                                k = k + 1;
-                                if (k >= max)
-                                {
-                                    break;
-                                }
-                            }
-                        }
-
-
-
-                        @*
-                            <div class="dropdown-divider"></div><a class="dropdown-item small" href="#">View all alerts</a>*@
-                    </div>
+                   
+                   
                 </li>
                 @*<li class="nav-item">
                         <form class="form-inline my-2 my-lg-0 mr-lg-2">
@@ -323,7 +178,7 @@
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">
-                    <small>Copyright © GHotel 2023</small>
+                    <small>4TLHotel 2023</small>
                 </div>
             </div>
         </footer>
